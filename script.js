@@ -14,7 +14,7 @@ if (close) {
   });
 }
 
-// Image Swap on Click
+// Image Swap on Click in sproduct.html button
 var mainImg = document.getElementById("mainImg");
 
 var smallImgs = document.getElementsByClassName("small-img");
@@ -24,3 +24,18 @@ for (let i = 0; i < smallImgs.length; i++) {
     mainImg.src = smallImgs[i].src;
   };
 }
+
+// Remove items from the cart
+document.addEventListener("DOMContentLoaded", function () {
+    const removeIcons = document.querySelectorAll("#cart tbody .fa-times-circle");
+
+    removeIcons.forEach(icon => {
+      icon.addEventListener("click", function (e) {
+        e.preventDefault();
+        const row = icon.closest("tr");
+        if (row) {
+          row.remove();
+        }
+      });
+    });
+  });
